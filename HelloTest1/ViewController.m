@@ -43,7 +43,7 @@
 - (IBAction)changeGreeting:(id)sender {
     self.name = textField.text;
     NSLog(@"textField:%@\n", self.name);
-    [label setText:[NSString stringWithFormat:@"Hello %@!", self.name]];
+    [label setText:[NSString stringWithFormat:@"Hello %@ my friend", self.name]];
 }
 
 - (BOOL) textFieldShouldReturn: (UITextField*) theTextField{
