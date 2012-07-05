@@ -13,6 +13,9 @@
 @end
 
 @implementation ViewController
+@synthesize textField;
+@synthesize label;
+@synthesize name = _name;
 
 - (void)viewDidLoad
 {
@@ -22,6 +25,8 @@
 
 - (void)viewDidUnload
 {
+    [self setTextField:nil];
+    [self setLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -35,4 +40,14 @@
     }
 }
 
+- (IBAction)changeGreeting:(id)sender {
+    self.name = textField.text;
+    NSLog(@"textField:%@\n", self.name);
+    [label setText:[NSString stringWithFormat:@"Hello %@!", self.name]];
+}
+
+- (BOOL) textFieldShouldReturn: (UITextField*) theTextField{
+    [theTextField resignFirstResponder];
+    return true;
+}
 @end
